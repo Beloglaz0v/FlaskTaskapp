@@ -5,12 +5,12 @@ import time
 class TaskSchema(Schema):
     id = fields.Integer(dump_only=True)
     user_id = fields.Integer(dump_only=True)
-    title = fields.String(required=True, validate=[
+    title = fields.String(validate=[
         validate.Length(max=250)])
     description = fields.String(required=False, validate=[
         validate.Length(max=500)])
     date = fields.DateTime(format='%d.%m.%Y %H:%M:%S', dump_only=True)
-    status = fields.Integer(required=True)
+    status = fields.Integer()
     deadline = fields.Date(required=False)
     message = fields.String(dump_only=True)
 
