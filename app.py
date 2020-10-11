@@ -54,7 +54,7 @@ def get_tasks():
     return tasks
 
 
-@app.route('/new_task', methods=['POST'])
+@app.route('/tasks', methods=['POST'])
 @jwt_required
 @use_kwargs(TaskSchema)
 @marshal_with(TaskSchema)
@@ -66,7 +66,7 @@ def new_tasks(**kwargs):
     return new_one
 
 
-@app.route('/update_task/<int:task_id>', methods=['PUT'])
+@app.route('/tasks/<int:task_id>', methods=['PUT'])
 @jwt_required
 @use_kwargs(TaskSchema)
 @marshal_with(TaskSchema)
@@ -84,7 +84,7 @@ def update_task(task_id, **kwargs):
     return item
 
 
-@app.route('/delete_task/<int:task_id>', methods=['DELETE'])
+@app.route('/tasks/<int:task_id>', methods=['DELETE'])
 @jwt_required
 @marshal_with(TaskSchema)
 def delete_task(task_id):
